@@ -8,17 +8,17 @@
         </a>
     </li>
     <li class="treeview">
-        <a href="/modules/escolar/carrera">
+        <a href="{{url('/modules/escolar/carrera')}}">
             <i class="fa fa-graduation-cap"></i></i> <span>Carreras</span></i>
         </a>
     </li>
     <li class="treeview">
-        <a href="/modules/escolar/grupos">
+        <a href="{{url('/modules/escolar/grupos')}}">
             <i class="fa fa-list-ul"></i></i> <span>Grupos</span></i>
         </a>
     </li>
     <li class="treeview">
-        <a href="/modules/escolar/ciclos">
+        <a href="{{url('/modules/escolar/ciclos')}}">
             <i class="fa fa-calendar"></i></i> <span>Ciclos</span></i>
         </a>
     </li>

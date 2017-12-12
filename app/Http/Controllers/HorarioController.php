@@ -119,6 +119,18 @@ class HorarioController extends Controller {
 			'plantel' => $plantel]);
 	}
 
+	public function grupoPre() {
+		$asignacionClase = new AsignacionClase();
+		$empleado = Empleado::find(\Auth::user()->empleado_id);
+		$edificios = Edificios::where("cct_plantel", $empleado->cct_plantel)->get();
+		$plantel = Plantel::find($empleado->cct_plantel);
+		$bloqueo = Bloqueo::first();
+		return view('PersonalViews.Horario.horarioGrupal', ['grupos' => $asignacionClase->getClaseGrupoPre($empleado->cct_plantel),
+			'gruposSemi' => $asignacionClase->getClaseGrupoSemiPre($empleado->cct_plantel), "response" => $edificios, 'bloqueo' => $bloqueo,
+			'plantel' => $plantel]);
+		//echo "Hola";
+	}
+
 	/**
 	 * Método que valida si el grupo, carrera y ciclo ya están asignados,
 	 * en el caso contrario se visualiza la asignación

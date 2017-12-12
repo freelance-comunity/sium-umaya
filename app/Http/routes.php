@@ -83,6 +83,7 @@
 		Route::post('modules/personal/horario/tipo/eliminar','HorarioController@eliminarTipo');
 		//asignacion grupal
 		Route::get('modules/personal/horario/grupo','HorarioController@grupo');
+		Route::get('modules/personal/horario/grupo/pre','HorarioController@grupoPre');
 		Route::get('modules/personal/horario/grupo/addGrupo','HorarioController@addGrupo');
 		Route::get('modules/personal/horario/grupo/seleccionar','CarreraController@seleccionar');
 		Route::post('modules/personal/horario/grupo/seleccionar','HorarioController@asignarGrupo');

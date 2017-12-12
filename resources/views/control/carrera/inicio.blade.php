@@ -63,7 +63,7 @@
     <section class="content">
         <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">Módulo Ciclo Escolar</h3>
+                <h3 class="box-title">Módulo Carreras</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -83,7 +83,7 @@
                         <div class="input-group">
                             <a class="btn btn-block btn-social btn-bitbucket"
                                href="{{url('/modules/escolar/carrera/add')}}">
-                                <i class="fa fa-plus"></i> Agregar Ciclo
+                                <i class="fa fa-plus"></i> Agregar Carrera
                             </a>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         <thead>
                         <tr>
                             <th width="5">#</th>
-                            <th class="col-md-4 col-xs-4">nombre</th>
+                            <th class="col-md-4 col-xs-4">Nombre</th>
                             <th class="col-md-1 col-xs-1">RVOE</th>
                             <th class="col-md-3 col-xs-3">Plantel</th>
                             <th class="col-md-2 col-xs-2">Modalidad</th>
@@ -109,11 +109,11 @@
                                 <td>{{ $carrera->plantelnom }}</td>
                                 <td>{{ $carrera->nommod }}</td>
                                 <td>
-                                    <a class="btn btn-danger " title="Eliminar Materia"
+                                    <a class="btn btn-danger " title="Eliminar Carrera"
                                        onclick="setValue('{{ $carrera->id }}','{{$carrera->nombre}}',this)"><i
                                                 class="fa fa-trash fa-lg"></i></a>
                                     <a href="{{url("/modules/escolar/carrera/")}}/modify/{{$carrera->id}}"
-                                       class="btn btn-primary" title="Modificar Materia">
+                                       class="btn btn-primary" title="Modificar Carrera">
                                         <i class="fa fa-pencil fa-lg"></i>
                                     </a>
                                 </td>

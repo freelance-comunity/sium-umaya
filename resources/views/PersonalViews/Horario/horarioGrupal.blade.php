@@ -34,13 +34,16 @@
             <li class="active"><a href="{{ url("modules/personal/horario/grupo") }}"><i class="fa fa-circle-o"></i>Ver carga
                     Horarios</a>
             </li>
+            <li class="active"><a href="{{ url("modules/personal/horario/grupo/pre") }}"><i class="fa fa-circle-o"></i>Ver carga
+                    Horarios Pre-activos</a>
+            </li>
             <li ><a href="{{ url("modules/personal/horario/grupo/seleccionar") }}"><i class="fa fa-circle-o"></i>Asignación
                     Carga</a>
             </li>
 
         </ul>
     </li>
-    
+
 @endsection
 
 @section('contenido')
@@ -140,16 +143,16 @@
                                        href="{{url("/modules/personal/horario/grupo")}}/reporte/{{$grupo->id}}/carrera/{{$grupo->id_carrera}}/ciclo/{{$grupo->id_ciclo}}/mod/{{$grupo->id_modalidad}}">
                                         <i class="fa fa-file-pdf-o fa-lg"></i>
                                     </a>
-                                   
+
                                     <a class="btn btn-info" title="Modificar Salon" target="_blank" onclick="showSalones('{{$grupo->id_salon}}','{{$grupo->id}}','{{$grupo->id_ciclo}}','{{$grupo->id_carrera}}')">
                                         <i class="fa fa-users fa-lg"></i>
                                     </a>
-                                    
+
                                         <a href="{{url("/modules/personal/horario/grupo")}}/qr/{{$grupo->id}}/carrera/{{$grupo->id_carrera}}/ciclo/{{$grupo->id_ciclo}}/salon/{{$grupo->id_salon}}"
                                            class="btn btn-warning"  title="Generar QR">
                                             <i class="fa fa-qrcode fa-lg"></i>
                                         </a>
-                              
+
                                 </td>
                             </tr>
                         @endforeach
@@ -241,7 +244,7 @@
                 }
             });
         }
-        
+
         function setBloqueo(id) {
             $.ajax({
                 type: "POST",
@@ -410,7 +413,7 @@
 
             var dataTable = $('#tablaGrupos').dataTable({
                 initComplete: function() {
-                    this.api().columns([1,2,3,4,5,6]).every(function () {                        
+                    this.api().columns([1,2,3,4,5,6]).every(function () {
                         var column = this;
                         var select = $('<select><option value=""></option></select>')
                             .appendTo($(column.header()).empty())

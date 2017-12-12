@@ -204,9 +204,61 @@ class AsignacionClase {
 				->select(DB::raw('DISTINCT(gp.*)'),'car.id as id_carrera','car.nombre','ci.nombre_corto',
 					'ci.id AS id_ciclo','asignacion_clase.id_salon','salon.numero','edificio.nombre as edificio','dia')
 				->where("gp.id_modalidad",2)
-                ->where('cct',$cct)
+        ->where('cct',$cct)
 				->where('ci.activo', 1)
 				->orderBy('nombre_corto','asc')->get();
+			return $clases;
+		}catch (QueryException $e){
+			return ['error' => 'Error al obtener la lista de asignaciones: ' . $e->getMessage()];
+		}
+	}
+
+	public function getClaseGrupoPre($cct){
+		try{
+			$clases = AsignacionClases::join('ciclos AS ci','ci.id','=','asignacion_clase.id_ciclos')
+				->join('grupos AS gp','gp.id','=','asignacion_clase.id_grupos')
+				->join('carreras AS car','car.id','=','asignacion_clase.id_carreras')
+        ->join('plantel','cct_plantel',"=","cct")
+				->join('salon','salon.id','=','id_salon')
+				->join('edificio','edificio.id','=','id_edificio')
+				->select(DB::raw('DISTINCT(gp.*)'),'car.id as id_carrera','car.nombre','ci.nombre_corto',
+					'ci.id AS id_ciclo','asignacion_clase.id_salon','salon.numero','edificio.nombre as edificio')
+				->where('gp.id_modalidad', '<>', 2)
+        ->where('cct',$cct)
+				->where('ci.activo', '<>', 1)
+				->where('ci.descripcion', 1)
+				->orderBy('nombre_corto','asc')->get();
+				// ->where('gp.id_modalidad','<>',2)
+        //         ->where('cct',$cct)
+				// ->where('ci.activo', 1)
+				// ->orderBy('nombre_corto','asc')->get();
+			return $clases;
+		}catch (QueryException $e){
+			return ['error' => 'Error al obtener la lista de asignaciones: ' . $e->getMessage()];
+		}
+	}
+
+	public function getClaseGrupoSemiPre($cct){
+		try{
+			$clases = AsignacionClases::join('ciclos AS ci','ci.id','=','asignacion_clase.id_ciclos')
+				->join('grupos AS gp','gp.id','=','asignacion_clase.id_grupos')
+				->join('carreras AS car','car.id','=','asignacion_clase.id_carreras')
+                ->join('plantel','cct_plantel',"=","cct")
+				->join('salon','salon.id','=','id_salon')
+				->join('edificio','edificio.id','=','id_edificio')
+				->join('asignacion_horario AS asiHor','asiHor.id','=','asignacion_clase.id_asignacion_horario')
+				->join('horario','horario.id','=','asiHor.id_horario')
+				->select(DB::raw('DISTINCT(gp.*)'),'car.id as id_carrera','car.nombre','ci.nombre_corto',
+					'ci.id AS id_ciclo','asignacion_clase.id_salon','salon.numero','edificio.nombre as edificio','dia')
+				->where("gp.id_modalidad",2)
+        ->where('cct',$cct)
+				->where('ci.activo', '<>', 1)
+				->where('ci.descripcion', 1)
+				->orderBy('nombre_corto','asc')->get();
+				// ->where("gp.id_modalidad",2)
+        // ->where('cct',$cct)
+				// ->where('ci.activo', 1)
+				// ->orderBy('nombre_corto','asc')->get();
 			return $clases;
 		}catch (QueryException $e){
 			return ['error' => 'Error al obtener la lista de asignaciones: ' . $e->getMessage()];
