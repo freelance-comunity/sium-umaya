@@ -44,6 +44,19 @@
 		Route::post('/admin/register','PersonalController@registerPost');
 		Route::get('/docente/register','PersonalController@registerDocente');
 		Route::post('/docente/register','PersonalController@registerPostDocente');
+    //Rutas para cambiar contraseñas
+    Route::get('/cambiar/contraseña','AdminController@cambiarContraseña');
+		Route::get('resetear/contraseña/{id}', 'AdminController@resetearContraseña');
+		Route::post('resetear', 'AdminController@resetear')->name('reset');
+    //Terminan rutas para cambiar contraseñas
+    //Rutas para catalogos
+    Route::get('catalogos', function()
+    {
+			return view('admin.catalogos');
+    });
+		Route::resource('profesion', 'ProfesionController');
+		Route::get('eliminarProfesion/{id}', 'ProfesionController@eliminar');
+    // Terminan rutas para catalogos
 		//Asignamos privilegios
 		/**
 		 * Modulo personal

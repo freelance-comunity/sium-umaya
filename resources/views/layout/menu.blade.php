@@ -36,7 +36,7 @@
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <div class="navbar-header">
-                <a href="../sium" class="navbar-brand"><b>SIUM</b></a>
+                <a href="{{url('/')}}" class="navbar-brand"><b>SIUM</b></a>
 
             </div>
 

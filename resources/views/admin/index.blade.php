@@ -104,6 +104,36 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>Cambiar contraseñas </h3>
+                            <p><strong>Usuarios</strong></p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-key"></i>
+                        </div>
+                        <a href="{{ url("/cambiar/contraseña") }}" class="small-box-footer">
+                            Acceder <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>Catalogo </h3>
+                            <p><strong>Sistema</strong></p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <a href="{{ url("/catalogos") }}" class="small-box-footer">
+                            Acceder <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

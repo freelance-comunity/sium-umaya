@@ -9,7 +9,7 @@
                 <small>Sistema Integral Universidad Maya</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{ url("/") }}" class="active"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="{{ url('home') }}" class="active"><i class="fa fa-dashboard"></i> Home</a></li>
             </ol>
         </section>
         <section class="content">
