@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Profesion;
+use App\User;
 
 class ProfesionController extends Controller
 {
@@ -65,7 +66,7 @@ class ProfesionController extends Controller
      */
     public function edit($id)
     {
-        return "edit";
+        return view('admin.editProfesion');
     }
 
     /**
@@ -77,7 +78,7 @@ class ProfesionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "hello, world!";
     }
 
     /**
@@ -88,14 +89,21 @@ class ProfesionController extends Controller
      */
     public function destroy($id)
     {
-        return "hola";
+        return "hello, world!";
 
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function eliminar($id)
     {
       $profesion = Profesion::find($id);
       $profesion->delete();
       return redirect('profesion')->withSuccess('Profesión eliminada!');
     }
+
 }

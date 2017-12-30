@@ -64,8 +64,8 @@
                 <td>{{$item->nombre}}</td>
                 <td>
                   <a href="{{ url('profesion/' . $item->id . '/edit') }}" title="Horario" class="btn btn-warning">
-                                          <i class="fa fa-pencil fa-lg"></i>
-                                      </a>
+                    <i class="fa fa-pencil fa-lg"></i>
+                  </a>
                   <a class="btn btn-danger" href="{{url('eliminarProfesion')}}/{{$item->id}}" onclick="return confirm('¿Estas seguro de eliminar esta profesión?')"><i class="fa fa-trash fa-lg"></i></a>
 
                 </td>
